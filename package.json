@@ -1,0 +1,24 @@
+{
+  "name": "wat-map",
+  "version": "1.0.0",
+  "description": "Map for all of University of Waterloo campus!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lu-joseph/wat-map.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lu-joseph/wat-map/issues"
+  },
+  "homepage": "https://github.com/lu-joseph/wat-map#readme",
+  "dependencies": {
+    "@angular/cli": "^15.1.2",
+    "express": "^4.18.2"
+  }
+}
