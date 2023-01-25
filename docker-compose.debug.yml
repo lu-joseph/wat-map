@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  sbom:
+    image: sbom
+    build:
+      context: frontend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3600:3600
+      - 4200:4200
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]

@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sbom",
+            "outputPath": "dist/wat-map",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -59,15 +59,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sbom:build",
+            "browserTarget": "wat-map:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sbom:build:production"
+              "browserTarget": "wat-map:build:production"
             },
             "development": {
-              "browserTarget": "sbom:build:development"
+              "browserTarget": "wat-map:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sbom:build"
+            "browserTarget": "wat-map:build"
           }
         },
         "test": {

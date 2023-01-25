@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  sbom:
+    image: sbom
+    build:
+      context: frontend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3600:3600
+      - 4200:4200
