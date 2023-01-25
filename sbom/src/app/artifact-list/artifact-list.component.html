@@ -1,0 +1,9 @@
+<p>Currently known artifacts include:</p>
+<ul>
+    <li *ngFor="let an_artifact of artifacts">
+        <button (click)="getArtifact(an_artifact.scriptname)">{{an_artifact.scriptname}}</button>
+    </li>
+</ul>
+Select a button for more information about the selected artifact.
+<p>{{details}}
+<p><a href='/'>Return to main menu</a>.</p>
