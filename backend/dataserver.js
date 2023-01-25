@@ -23,7 +23,6 @@ var mongodb;
 
 app.use(cors())
 
-
 app.route('/').get((req, res) => {
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.send("Recognized endpoints on this server include '/artifacts' and '/artifacts/NAME'.")
