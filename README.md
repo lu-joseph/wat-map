@@ -15,7 +15,7 @@ To run backend:
   
 4. Run API routes:
 
-    `node sbom-backend1.js`
+    `node dataserver.js`
   
 5. Navigate to `wat-map/frontend/`
 
