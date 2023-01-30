@@ -1,0 +1,5 @@
+
+get requests:
+    dijkstra:
+        params: {from, to}
+        returns: list of nodes
