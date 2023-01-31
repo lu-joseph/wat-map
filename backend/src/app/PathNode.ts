@@ -1,8 +1,9 @@
 export class Edge {
-    fromNode: PathNode;
-    toNode: PathNode;
+    fromNode: string;
+    toNode: string;
     dist: number;
-    constructor(fromNode: PathNode, toNode: PathNode, dist: number) {
+
+    constructor(fromNode: string, toNode: string, dist: number) {
         this.fromNode = fromNode;
         this.toNode = toNode;
         this.dist = dist;
@@ -10,15 +11,17 @@ export class Edge {
 }
 
 export class PathNode {
-    id: number;
     name: string;
-    tent_dist: number;
-    neighbours: Edge[];
-    constructor(id: number, name: string) {
-        this.id = id;
+    // tent_dist: number;
+    neighbours: {name: string, edge: Edge}[];
+    constructor(name: string) {
         this.name = name;
-        this.tent_dist = Infinity;
+        // this.tent_dist = Infinity;
         this.neighbours = [];
+    }
+
+    addEdge(neighbour: string, dist: number) {
+        this.neighbours.push({name: neighbour, edge: new Edge(this.name, neighbour, dist)})
     }
 
 }
