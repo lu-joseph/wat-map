@@ -17,7 +17,7 @@ var PathNode = /** @class */ (function () {
         this.neighbours = [];
     }
     PathNode.prototype.addEdge = function (neighbour, dist) {
-        this.neighbours.push({ neighbour: neighbour, edge: new Edge(this.name, neighbour, dist) });
+        this.neighbours.push({ name: neighbour, edge: new Edge(this.name, neighbour, dist) });
     };
     return PathNode;
 }());
