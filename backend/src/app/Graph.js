@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Graph = void 0;
 var ts_priority_queue_1 = require("../../../node_modules/ts-priority-queue");
 var PathNode_1 = require("./PathNode");
 var Graph = /** @class */ (function () {
     function Graph() {
         this.nodes = new Map();
-        this.buildings = ["PAC", "NH", "MC", "M3", "DC", "SLC", "STC", "QNC", "EIT", "ESC", "C2", "B1", "B2", "PHY", "CPH", "DWE", "E2", "E3", "E5", "E6", "E7"];
+        this.buildings = ["PAC", "NH", "MC", "M3", "DC", "SLC", "STC", "QNC", "EIT", "ESC",
+            "C2", "B1", "B2", "PHY", "CPH", "DWE", "E2", "E3", "E5", "E6", "E7"];
         for (var i = 0; i < this.buildings.length; i++) {
             this.nodes.set(this.buildings[i], new PathNode_1.PathNode(this.buildings[i]));
         }
@@ -86,9 +88,9 @@ var Graph = /** @class */ (function () {
     };
     return Graph;
 }());
-var graph = new Graph();
-var path = graph.djikstraAlgorithm("DWE", "PAC");
-for (var _i = 0, path_1 = path; _i < path_1.length; _i++) {
-    var node = path_1[_i];
-    console.log(node);
-}
+exports.Graph = Graph;
+// var graph: Graph = new Graph();
+// var path: string[] = graph.djikstraAlgorithm("DWE", "PAC");
+// for (let node of path) {
+//     console.log(node);
+// }

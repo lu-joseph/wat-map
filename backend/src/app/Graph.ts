@@ -2,7 +2,7 @@ import PriorityQueue from "../../../node_modules/ts-priority-queue";
 import { PathNode } from "./PathNode";
 import { Edge } from "./PathNode";
 
-class Graph {
+export class Graph {
     nodes: Map<string, PathNode>;
     private buildings: string[];
 
@@ -95,8 +95,8 @@ class Graph {
     }
 }
 
-var graph: Graph = new Graph();
-var path: string[] = graph.djikstraAlgorithm("DWE", "PAC");
-for (let node of path) {
-    console.log(node);
-}
+// var graph: Graph = new Graph();
+// var path: string[] = graph.djikstraAlgorithm("DWE", "PAC");
+// for (let node of path) {
+//     console.log(node);
+// }
