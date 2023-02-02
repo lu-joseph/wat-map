@@ -4,15 +4,13 @@ import { Edge } from "./PathNode";
 
 export class Graph {
     nodes: Map<string, PathNode>;
-    private buildings: string[];
+    static buildings: string[] = ["PAC", "NH", "MC", "M3", "DC", "SLC", "STC", "QNC", "EIT", "ESC",
+        "C2", "B1", "B2", "PHY", "CPH", "DWE", "E2", "E3", "E5", "E6", "E7"];
 
     constructor() {
         this.nodes = new Map();
-
-        this.buildings = ["PAC", "NH", "MC", "M3", "DC", "SLC", "STC", "QNC", "EIT", "ESC",
-            "C2", "B1", "B2", "PHY", "CPH", "DWE", "E2", "E3", "E5", "E6", "E7"];
-        for (let i = 0; i < this.buildings.length; i++) {
-            this.nodes.set(this.buildings[i], new PathNode(this.buildings[i]));
+        for (let i = 0; i < Graph.buildings.length; i++) {
+            this.nodes.set(Graph.buildings[i], new PathNode(Graph.buildings[i]));
         }
         this.addEdge("E6", "E7", 2);
         this.addEdge("E7", "E5", 1);
@@ -58,7 +56,7 @@ export class Graph {
         let path = [];
         let smallest: string = "";
 
-        for (let vertex of this.buildings) {
+        for (let vertex of Graph.buildings) {
             const dist = (vertex == start) ? 0 : Infinity;
             distances.set(vertex, dist);
             queue.queue({ name: vertex, val: dist });

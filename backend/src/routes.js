@@ -12,7 +12,7 @@
 // * `/artifacts/NAME’ returns details about NAME.
 Object.defineProperty(exports, "__esModule", { value: true });
 var Graph_1 = require("./app/Graph");
-var MongoClient = require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient
 var express = require('express');
 var cors = require('cors');
 var app = express();
@@ -20,7 +20,7 @@ var db;
 var dbName = 'my-test';
 var port = 3600;
 var table = 'artifact';
-var url = "mongodb://localhost:27017/";
+// const url = "mongodb://localhost:27017/"
 var mongodb;
 app.use(cors());
 app.route('/').get(function (req, res) {
@@ -54,28 +54,26 @@ app.route('/artifacts/:scriptname').get(function (req, res) {
         });
     });
 });
-app.route('/dijkstra').get(function (req, res) {
+app.route('/dijkstra/:from-:to').get(function (req, res) {
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
-    var buildings = [];
+    var from = req.params['from'];
+    var to = req.params['to'];
     var graph = new Graph_1.Graph();
-    var path = graph.djikstraAlgorithm("DWE", "PAC");
-    path.forEach(function (value) {
-        buildings.push({ buildingName: value });
-    });
-    res.send(buildings);
+    var path = graph.djikstraAlgorithm(from, to);
+    res.send({ path: path });
 });
-MongoClient.connect(url, function (err, client) {
-    mongodb = client;
-    var db = client.db(dbName);
-    console.log('Connected');
-    // db.collection(table).find().toArray((err, artifact) => {
-    //     if (err) throw err
-    //     artifact.forEach((value) => {
-    //         // console.log(value.scriptname)
-    //     })
-    //     client.close()
-    // })
-    app.listen(port, function () {
-        console.log('Listening on ' + port + '.');
-    });
+// MongoClient.connect(url, (err: any, client: any) => {
+//     mongodb = client;
+//     const db = client.db(dbName);
+//     console.log('Connected')
+//     // db.collection(table).find().toArray((err, artifact) => {
+//     //     if (err) throw err
+//     //     artifact.forEach((value) => {
+//     //         // console.log(value.scriptname)
+//     //     })
+//     //     client.close()
+//     // })
+app.listen(port, function () {
+    console.log('Listening on ' + port + '.');
 });
+// })

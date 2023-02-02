@@ -1,0 +1,16 @@
+<p>Select from:</p>
+<select (change)="selectFrom($event)">
+    <option *ngFor="let building of buildings" [value]="building">
+        {{building}}
+    </option>
+</select>
+<p>Select to:</p>
+<select (change)="selectTo($event)">
+    <option *ngFor="let building of buildings" [value]="building">
+        {{building}}
+    </option>
+</select>
+<button (click)="getPath()">Calculate path</button>
+<ul>
+    <li *ngFor="let building of routePath">{{building}}</li>
+</ul>

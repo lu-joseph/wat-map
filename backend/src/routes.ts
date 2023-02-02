@@ -12,7 +12,7 @@
 
 import { Graph } from './app/Graph';
 
-const MongoClient = require('mongodb').MongoClient
+// const MongoClient = require('mongodb').MongoClient
 const express = require('express')
 var cors = require('cors')
 const app = express()
@@ -20,7 +20,7 @@ var db
 const dbName = 'my-test'
 const port = 3600
 let table = 'artifact'
-const url = "mongodb://localhost:27017/"
+// const url = "mongodb://localhost:27017/"
 
 var mongodb: any;
 
@@ -55,33 +55,31 @@ app.route('/artifacts/:scriptname').get((req: any, res: any) => {
         })
     })
 })
-app.route('/dijkstra').get((req: any, res: any) => {
+app.route('/dijkstra/:from-:to').get((req: any, res: any) => {
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
-    var buildings: { buildingName: string }[] = [];
+    const from = req.params['from'];
+    const to = req.params['to'];
     var graph = new Graph();
-    var path = graph.djikstraAlgorithm("DWE", "PAC");
-    path.forEach((value) => {
-        buildings.push({ buildingName: value })
-    })
-    res.send(buildings);
+    var path = graph.djikstraAlgorithm(from, to);
+    res.send({ path: path });
 })
 
 
 
 
-MongoClient.connect(url, (err: any, client: any) => {
+// MongoClient.connect(url, (err: any, client: any) => {
 
-    mongodb = client;
-    const db = client.db(dbName);
-    console.log('Connected')
-    // db.collection(table).find().toArray((err, artifact) => {
-    //     if (err) throw err
-    //     artifact.forEach((value) => {
-    //         // console.log(value.scriptname)
-    //     })
-    //     client.close()
-    // })
-    app.listen(port, function () {
-        console.log('Listening on ' + port + '.')
-    })
+//     mongodb = client;
+//     const db = client.db(dbName);
+//     console.log('Connected')
+//     // db.collection(table).find().toArray((err, artifact) => {
+//     //     if (err) throw err
+//     //     artifact.forEach((value) => {
+//     //         // console.log(value.scriptname)
+//     //     })
+//     //     client.close()
+//     // })
+app.listen(port, function () {
+    console.log('Listening on ' + port + '.')
 })
+// })

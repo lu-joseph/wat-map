@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArtifactListComponent } from './artifact-list.component';
+import { PathComponent } from './path.component';
 
-describe('ArtifactListComponent', () => {
-  let component: ArtifactListComponent;
-  let fixture: ComponentFixture<ArtifactListComponent>;
+describe('PathComponent', () => {
+  let component: PathComponent;
+  let fixture: ComponentFixture<PathComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArtifactListComponent ]
+      declarations: [ PathComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ArtifactListComponent);
+    fixture = TestBed.createComponent(PathComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

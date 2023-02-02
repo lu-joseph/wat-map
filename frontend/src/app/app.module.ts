@@ -1,33 +1,24 @@
-/* app.module.ts specifies the modules this Angular
-   application requires.  It retrieves results from
-   the dataserver, for example; therefore it must
-   import HttpClient. */
-import { AppComponent } from './app.component'
-import { ArtifactListComponent } from './artifact-list/artifact-list.component'
-import { BrowserModule } from '@angular/platform-browser'
-import { HttpClient } from '@angular/common/http'
-import { HttpClientModule } from '@angular/common/http'
-import { Injectable } from '@angular/core'
-import { NgModule } from '@angular/core'
-import { Observable } from 'rxjs'
-import { RouterModule } from '@angular/router'
-import { TopComponent } from './top/top.component'
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { PathComponent } from './path/path.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArtifactListComponent,
-    TopComponent
+    PathComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'artifact-list', component: ArtifactListComponent },
-      { path: '', component: TopComponent }
-    ]),
+      { path: 'path', component: PathComponent }
+    ])
   ],
   providers: [],
-  bootstrap: [AppComponent, TopComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

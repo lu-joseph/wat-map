@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ArtifactService } from './artifact.service';
+import { PathService } from './path.service';
 
-describe('ArtifactService', () => {
-  let service: ArtifactService;
+describe('PathService', () => {
+  let service: PathService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ArtifactService);
+    service = TestBed.inject(PathService);
   });
 
   it('should be created', () => {

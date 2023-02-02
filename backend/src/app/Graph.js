@@ -6,10 +6,8 @@ var PathNode_1 = require("./PathNode");
 var Graph = /** @class */ (function () {
     function Graph() {
         this.nodes = new Map();
-        this.buildings = ["PAC", "NH", "MC", "M3", "DC", "SLC", "STC", "QNC", "EIT", "ESC",
-            "C2", "B1", "B2", "PHY", "CPH", "DWE", "E2", "E3", "E5", "E6", "E7"];
-        for (var i = 0; i < this.buildings.length; i++) {
-            this.nodes.set(this.buildings[i], new PathNode_1.PathNode(this.buildings[i]));
+        for (var i = 0; i < Graph.buildings.length; i++) {
+            this.nodes.set(Graph.buildings[i], new PathNode_1.PathNode(Graph.buildings[i]));
         }
         this.addEdge("E6", "E7", 2);
         this.addEdge("E7", "E5", 1);
@@ -52,7 +50,7 @@ var Graph = /** @class */ (function () {
         var previous = new Map();
         var path = [];
         var smallest = "";
-        for (var _i = 0, _a = this.buildings; _i < _a.length; _i++) {
+        for (var _i = 0, _a = Graph.buildings; _i < _a.length; _i++) {
             var vertex = _a[_i];
             var dist = (vertex == start) ? 0 : Infinity;
             distances.set(vertex, dist);
@@ -86,6 +84,8 @@ var Graph = /** @class */ (function () {
         }
         return path.concat(smallest).reverse();
     };
+    Graph.buildings = ["PAC", "NH", "MC", "M3", "DC", "SLC", "STC", "QNC", "EIT", "ESC",
+        "C2", "B1", "B2", "PHY", "CPH", "DWE", "E2", "E3", "E5", "E6", "E7"];
     return Graph;
 }());
 exports.Graph = Graph;
